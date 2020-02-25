@@ -61,7 +61,15 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+
+  if (n === 0) return true;
+  if (n === 1) return false;
+
+  return (n < 0) ? isEven( n + 2) : isEven( n - 2);
 };
+// console.log( 'isEven: ', isEven(7);
+
+
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
