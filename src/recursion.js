@@ -25,22 +25,39 @@ var sum = function(array) {
   if (array.length <= 0) return 0;
   if (array.length === 1) return array[0];
 
-  var workArr= array.slice();
+  var workArr = array.slice();
 
-  workArr[1] = (workArr[0] + workArr[1])
+  workArr[1] = (parseInt(workArr[0]) + parseInt(workArr[1]))
 
   workArr.shift();
 
   return sum(workArr);
 };
-console.log( 'difs: ', sum([3,0,34,7,18]));
+// console.log( 'sum: ', sum([3,0,34,7,18]));
 
 
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+
+  var flatArr = array.flat(Infinity);
+
+  if (flatArr.length <= 0) return 0;
+  if (flatArr.length === 1) return flatArr[0];
+
+  var workArr = flatArr.slice();
+
+  workArr[1] = (parseInt(workArr[0]) + parseInt(workArr[1]))
+
+  workArr.shift();
+
+  return arraySum(workArr);
+
 };
+// console.log( 'arraySum: ', arraySum([3,0,34,7,18]));
+
+
 
 // 4. Check if a number is even.
 var isEven = function(n) {
