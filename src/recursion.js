@@ -171,7 +171,13 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
+  if (x === 0 || y === 0) return 0;
+  if (x === 1) return y;
+  if (y === 1) return x;
+  if (y  >  0) return x + multiply(x , y - 1);
+  if (y  <  0) return -x + multiply(x , y + 1);
 };
+
 
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
@@ -191,11 +197,41 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+
+  // console.log(str1, str2);
+
+  // if ((str1 || str2) === undefined) return false;
+
+  // if (str1.charAt(0) !== str2.charAt(0)) {
+  //   return false;
+  // }
+  // else {
+
+  //   if (str1.length > 1) str1.slice(1);
+  //   if (str2.length > 1) str2.slice(1);
+  //   compareStr(str1 , str2);
+  //   return true;
+  // }
+
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+
+  // return (str.length === 1) ? [str] : [str.slice(0, str.length - 1)].concat(createArray(str.slice(-1)));
+
+  // if (str.typeOf === 'string') {
+  //   if (str.length === 1) return [str];
+  // }
+  // if (str.typeOf === 'array') {
+  //   if (str[0].length === 1) {
+  //     return str;
+  //   }
+  //   console.log(str);
+  //   return [str[0].slice(0, str[0].length - 1)].concat(createArray(str[0].slice(-1)))
+  // }
+
 };
 
 // 17. Reverse the order of an array
@@ -206,6 +242,9 @@ var reverseArr = function(array) {
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+
+  return (length === 1) ? [value] : [value].concat(buildList(value, --length));
+
 };
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
