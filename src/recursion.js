@@ -182,7 +182,16 @@ var multiply = function(x, y) {
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
+
+  // if (x < 0) return x;
+
+
 };
+// if (x === 0 || y === 0) return 0;
+// if (x === 1) return y;
+// if (y === 1) return x;
+// if (y  >  0) return x - divide(x , y - 1);
+// if (y  <  0) return -x - divide(x , y + 1);
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
@@ -236,6 +245,9 @@ var createArray = function(str) {
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
+
+
+
 };
 
 // 18. Create a new array with a given value and length.
@@ -372,6 +384,27 @@ var numToText = function(str) {
 
 // 37. Return the number of times a tag occurs in the DOM.
 var tagCount = function(tag, node) {
+
+  let dom = node ? node : document.body;
+
+  let tags = 0;
+
+  function checkElement(el) {
+
+    if ( el.tagName === tag.toUpperCase() ) tags++;
+
+    if (el.hasChildNodes) {
+      el.childNodes.forEach(childEl => {
+        checkElement(childEl);
+      });
+    }
+  }
+
+  // Let's do this
+  checkElement(dom);
+
+  return tags;
+
 };
 
 // 38. Write a function for binary search.
