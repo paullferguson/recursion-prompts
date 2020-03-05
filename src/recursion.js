@@ -102,9 +102,11 @@ var sumBelow = function(n, total) {
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
 
-  // if ((x + 1) === y) return [x];
-
-  // return [x, ...range( x + 1, y )];
+  if (x > y) {
+    return ( y < x - 1 ) ? [x - 1].concat(range( x - 1, y)) : [] ;
+  } else {
+    return ( x < y - 1 ) ? [x + 1].concat(range( x + 1, y)) : [] ;
+  }
 
 };
 
@@ -317,6 +319,17 @@ var nthFibo = function(n) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(array) {
+
+  // return (length === 1) ? [value] : [value].concat(buildList(value, --length));
+
+  // let opt = [];
+
+  // if (array.length === 0) return opt;
+
+  // opt.push(array.shift().toUpperCase())
+
+  // return capitalizeWords();
+
 };
 
 // 28. Given an array of strings, capitalize the first letter of each index.
