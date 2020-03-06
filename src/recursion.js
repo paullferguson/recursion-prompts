@@ -348,15 +348,13 @@ var nthFibo = function(n) {
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(array) {
 
-  // return (length === 1) ? [value] : [value].concat(buildList(value, --length));
+  if (array.length === 1) return [array[0].toUpperCase()];
 
-  // let opt = [];
+  let opt = capitalizeWords(array.slice(0, -1));
 
-  // if (array.length === 0) return opt;
+  opt.push(array.slice(array.length - 1)[0].toUpperCase());
 
-  // opt.push(array.shift().toUpperCase())
-
-  // return capitalizeWords();
+  return opt;
 
 };
 
