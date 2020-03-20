@@ -8,9 +8,9 @@
 // factorial(5); // 120
 var factorial = function(n) {
 
-  if (n < 0) return null;
+  if (n < 0) { return null; }
 
-  if (n === 0) return 1;
+  if (n === 0) { return 1; }
 
   return (n * factorial( n - 1 ));
 
@@ -22,12 +22,12 @@ var factorial = function(n) {
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
 
-  if (array.length <= 0) return 0;
-  if (array.length === 1) return array[0];
+  if (array.length <= 0) { return 0; }
+  if (array.length === 1) { return array[0]; }
 
   var workArr = array.slice();
 
-  workArr[1] = (parseInt(workArr[0]) + parseInt(workArr[1]))
+  workArr[1] = (parseInt(workArr[0]) + parseInt(workArr[1]));
 
   workArr.shift();
 
@@ -43,12 +43,12 @@ var arraySum = function(array) {
 
   var flatArr = array.flat(Infinity);
 
-  if (flatArr.length <= 0) return 0;
-  if (flatArr.length === 1) return flatArr[0];
+  if (flatArr.length <= 0) { return 0; }
+  if (flatArr.length === 1) { return flatArr[0]; }
 
   var workArr = flatArr.slice();
 
-  workArr[1] = (parseInt(workArr[0]) + parseInt(workArr[1]))
+  workArr[1] = (parseInt(workArr[0]) + parseInt(workArr[1]));
 
   workArr.shift();
 
@@ -62,8 +62,8 @@ var arraySum = function(array) {
 // 4. Check if a number is even.
 var isEven = function(n) {
 
-  if (n === 0) return true;
-  if (n === 1) return false;
+  if (n === 0) { return true; }
+  if (n === 1) { return false; }
 
   return (n < 0) ? isEven( n + 2) : isEven( n - 2);
 };
@@ -76,25 +76,25 @@ var isEven = function(n) {
 // sumBelow(7); // 21
 var sumBelow = function(n, total) {
 
-  if (n === 0) return 0;
+  if (n === 0) { return 0; }
 
   var total = total ? total : 0;
 
   if (n > 1) {
     n--;
     total = total + n;
-    if (n > 1) return sumBelow(n, total);
+    if (n > 1) { return sumBelow(n, total); }
   }
 
-  if (n === 1) return total;
+  if (n === 1) { return total; }
 
   if (n < -1) {
     n++;
     total = total + n;
-    if (n < -1) return sumBelow(n, total);
+    if (n < -1) { return sumBelow(n, total); }
   }
 
-  if (n === -1) return total;
+  if (n === -1) { return total; }
 
 };
 
@@ -103,9 +103,9 @@ var sumBelow = function(n, total) {
 var range = function(x, y) {
 
   if (x > y) {
-    return ( y < x - 1 ) ? [x - 1].concat(range( x - 1, y)) : [] ;
+    return ( y < x - 1 ) ? [x - 1].concat(range( x - 1, y)) : [];
   } else {
-    return ( x < y - 1 ) ? [x + 1].concat(range( x + 1, y)) : [] ;
+    return ( x < y - 1 ) ? [x + 1].concat(range( x + 1, y)) : [];
   }
 
 };
@@ -117,9 +117,9 @@ var range = function(x, y) {
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
 
-  if (exp === 0) return 1;
-  if (exp > 0) return base * (exponent(base, --exp ));
-  if (exp < 0) return (exponent(base, ++exp )) / base;
+  if (exp === 0) { return 1; }
+  if (exp > 0) { return base * (exponent(base, --exp )); }
+  if (exp < 0) { return (exponent(base, ++exp )) / base; }
 
 };
 
@@ -131,8 +131,8 @@ var exponent = function(base, exp) {
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
 
-  if (n === 0) return false;
-  if (n === 1) return true;
+  if (n === 0) { return false; }
+  if (n === 1) { return true; }
 
   return (Number.isInteger(n)) ? powerOfTwo( n / 2) : false;
 
@@ -143,7 +143,7 @@ var powerOfTwo = function(n) {
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
 
-  if (string === "") return "";
+  if (string === '') { return ''; }
   return reverse(string.substr(1)) + string.charAt(0);
 
 };
@@ -161,10 +161,10 @@ var palindrome = function(string) {
 // modulo(22,6) // 4
 var modulo = function(x, y) {
 
-  if (x < y) return x;
-  if (y === 0) return NaN;
-  if ((x - y) === 0) return 0;
-  if ((x - y) < y) return (x - y);
+  if (x < y) { return x; }
+  if (y === 0) { return NaN; }
+  if ((x - y) === 0) { return 0; }
+  if ((x - y) < y) { return (x - y); }
 
   return modulo(x = x - y, y);
 
@@ -173,11 +173,11 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
-  if (x === 0 || y === 0) return 0;
-  if (x === 1) return y;
-  if (y === 1) return x;
-  if (y  >  0) return x + multiply(x , y - 1);
-  if (y  <  0) return -x + multiply(x , y + 1);
+  if (x === 0 || y === 0) { return 0; }
+  if (x === 1) { return y; }
+  if (y === 1) { return x; }
+  if (y > 0) { return x + multiply(x, y - 1); }
+  if (y < 0) { return -x + multiply(x, y + 1); }
 };
 
 
@@ -337,8 +337,8 @@ var fibonacci = function(n) {
 // nthFibo(3); // 2
 var nthFibo = function(n) {
 
-  if (n < 0) return null;
-  if (n < 2) return n;
+  if (n < 0) { return null; }
+  if (n < 2) { return n; }
   return nthFibo(n - 1) + nthFibo (n - 2);
 
 };
@@ -348,7 +348,7 @@ var nthFibo = function(n) {
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(array) {
 
-  if (array.length === 1) return [array[0].toUpperCase()];
+  if (array.length === 1) { return [array[0].toUpperCase()]; }
 
   let opt = capitalizeWords(array.slice(0, -1));
 
@@ -428,16 +428,16 @@ var tagCount = function(tag, node) {
 
   let tags = 0;
 
-  function checkElement(el) {
+  var checkElement = function(el) {
 
-    if ( el.tagName === tag.toUpperCase() ) tags++;
+    if ( el.tagName === tag.toUpperCase() ) { tags++; }
 
     if (el.hasChildNodes) {
       el.childNodes.forEach(childEl => {
         checkElement(childEl);
       });
     }
-  }
+  };
 
   // Let's do this
   checkElement(dom);
